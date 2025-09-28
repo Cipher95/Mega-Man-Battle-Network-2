@@ -1,0 +1,201 @@
+ /* CSS Styling */
+        :root {
+            --primary-color: #0a0f1f; /* Deep blue */
+            --secondary-color: #ff4500; /* Orange-Red */
+            --accent-color: #00e5ff; /* Cyan */
+            --text-color: #f0f8ff; /* Alice Blue */
+            --glow-color: rgba(255, 69, 0, 0.8);
+            --container-bg: rgba(10, 15, 31, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-image: url('https://www.capcom-games.com/megaman/exe/assets/images/titlelist/ttl2-packege1_en.jpg'); /* New Background Image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            background: var(--container-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            box-shadow: 0 0 25px var(--glow-color);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            text-shadow: 0 0 5px var(--accent-color), 0 0 10px #fff;
+        }
+
+        .datetime {
+            text-align: right;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #clock {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 5px var(--glow-color);
+        }
+
+        #date-day {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        nav a {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+            background-color: rgba(255, 69, 0, 0.15);
+        }
+
+        nav a.active {
+            color: var(--secondary-color);
+            font-weight: 700;
+            background-color: rgba(255, 69, 0, 0.25);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary-color);
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+
+        main#content-area {
+            padding: 30px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        main#content-area.fade-out {
+            opacity: 0;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .content-image {
+            flex-shrink: 0;
+            width: 300px;
+        }
+        
+        .content-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        .content-text h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .content-text p, .content-text li {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .content-text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .content-text li::before {
+            content: '»';
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #aaa;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .datetime {
+                text-align: center;
+            }
+            .title h1 {
+                font-size: 2rem;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .content-image {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
